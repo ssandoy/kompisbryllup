@@ -1,10 +1,28 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/Section.astro";
+import RsvpSection from "../components/RsvpSection.astro";
 ---
 
-<Layout title="Kompis 💒💍🇫🇷">
+<Layout title="Kompis 💍🇫🇷">
   <main>
-    <div>Bryllup tjo og heiiii</div>
+    <div class="grid mt-8 min-h-[450px] md:min-h-[600px]">
+      <h1
+        class="text-5xl md:text-6xl text-white grid gap-10 justify-items-center items-center self-start justify-self-center"
+      >
+        <span class="md:text-lg text-sm tracking-widest"
+          >15. - 17. august 2025</span
+        >
+        Ine & Sander
+        <span class="md:text-lg text-sm">
+          Sommerflørten foreviges og vi inviterer til bryllupshelg!
+        </span>
+      </h1>
+    </div>
+
+    <Section title="Bryllup og tjO og heiii" />
+    <RsvpSection />
+    <Section title="Bryllup og tjO og heiii" />
   </main>
 </Layout>
 

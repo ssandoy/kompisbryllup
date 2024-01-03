@@ -1,42 +1,34 @@
 ---
-import seilbaat from "../images/seilbaat.png";
-// todo activeStyling
 const currentPath = Astro.url.pathname;
 
-const inactiveStyle = "text-gray-400";
+const extractPathStyle = (path: string) =>
+  path !== currentPath ? "text-weddingBlue" : "text-black";
+
+// fixme this is no longer a Navbar...
 ---
 
-<div class="relative w-full">
-  <h1
-    class="text-2xl md:text-6xl text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 font-"
-  >
-    Kompisbryllup 💍
-  </h1>
-  <img src={seilbaat.src} alt="Ine og Sander" class="w-full grayscale" />
-  <div
-    class="grid grid-cols-2 items-center justify-center h-40 absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-[80%]"
-  >
-    <div
-      class="bg-black w-full h-full text-white flex items-center justify-center"
-    >
-      <h2 class="text-xl md:text-3xl font-['WeddingText'] tracking-widest">
-        Ine & Sander
-      </h2>
-    </div>
-    <nav
-      class="p-2 bg-white flex justify-around gap-2 items-center text-xs h-full uppercase tracking-wide flex-col md:flex-row md:text-lg lg:text-xl"
-    >
-      <a href="/" class={currentPath !== "/" ? inactiveStyle : ""}>Forside</a>
-      <a href="/program" class={currentPath !== "/program" ? inactiveStyle : ""}
-        >Program</a
-      >
-      <a
-        href="/praktisk"
-        class={currentPath !== "/praktisk" ? inactiveStyle : ""}>Praktisk</a
-      >
-      <a href="/rsvp" class={currentPath !== "/rsvp" ? inactiveStyle : ""}
-        >RSVP</a
-      >
-    </nav>
-  </div>
-</div>
+<nav
+  class="navbar sticky top-0 p-2 flex justify-around gap-2 items-center text-xs uppercase tracking-wide md:text-lg lg:text-xl"
+>
+  <a href="/" class={extractPathStyle("/")}>Forside</a>
+  <a href="/program" class={extractPathStyle("/program")}>Program</a>
+  <a href="/praktisk" class={extractPathStyle("/praktisk")}>Praktisk</a>
+  <a href="/rsvp" class={extractPathStyle("/rsvp")}>RSVP</a>
+</nav>
+
+<style>
+  .navbar {
+    animation: scroll-reveal linear forwards;
+    animation-timeline: scroll();
+  }
+
+  @keyframes scroll-reveal {
+    0% {
+      background: none;
+    }
+    10%,
+    100% {
+      background: white;
+    }
+  }
+</style>

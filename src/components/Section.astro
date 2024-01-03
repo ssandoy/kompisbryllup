@@ -1,0 +1,31 @@
+---
+import { cn } from "../utils/tw";
+interface Props {
+  title: string;
+  className?: string;
+  // todo variant
+}
+
+const { title, className } = Astro.props;
+---
+
+<div
+  class={cn(
+    "w-screen grid bg-weddingBlue p-16 items-center justify-center",
+    className,
+  )}
+>
+  <h2 class="text-4xl text-white">
+    {title}
+  </h2>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A assumenda consequatur
+  distinctio dolore error natus rem sunt, totam. A consequuntur cumque doloribus
+  eius ipsum maiores pariatur repellat repellendus sit voluptatum? Lorem ipsum dolor
+  sit amet, consectetur adipisicing elit. Amet autem earum eveniet exercitationem,
+  harum ipsa nam necessitatibus repudiandae sapiente voluptas? Corporis delectus
+  deleniti dolorem dolores eum itaque maxime quis, voluptas!
+  <br /><br />
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquam aperiam
+  atque blanditiis eos ex excepturi facere fuga ipsum, iusto magnam natus nostrum
+  optio placeat quae repellat velit vitae voluptatibus!
+</div>
